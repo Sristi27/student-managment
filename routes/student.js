@@ -139,7 +139,7 @@ router.post("/create", upload.single("student-image"), async (req, res) => {
         image: req.file.filename ? req.file.filename : "",
         socials: socials == null ? [] : socials,
     });
-    const find = await Student.findOne({ email });
+    const find = await Studtent.findOne({ email });
     if (!find) {
         try {
             const save = await student.save();

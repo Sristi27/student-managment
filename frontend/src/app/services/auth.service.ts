@@ -8,7 +8,7 @@ import { Subject } from 'rxjs';
   providedIn: 'root'
 })
 export class AuthService {
-  private baseUrl = 'http://localhost:3000/';
+  private baseUrl = '';
   login: Login;
   loginObserver = new Subject<Login>();
   loginObserver$ = this.loginObserver.asObservable();

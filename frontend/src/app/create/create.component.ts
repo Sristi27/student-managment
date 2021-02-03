@@ -67,7 +67,7 @@ export class CreateComponent implements OnInit {
     }
 
     async downloadImageStudent() {
-        if (this.student) {
+        if (this.student) { 
             const resp = await this.rest.downloadImage(this.student.image);
             this.dataBlob = resp;
             console.log(this.dataBlob);
