@@ -8,7 +8,7 @@ import { Subject } from 'rxjs';
   providedIn: 'root'
 })
 export class RestService {
-  baseUrl = '';
+  baseUrl = 'http://localhost:3000/';
   constructor(private http: HttpClient) { }
   private students: Student[] = [];
   private studentsUpdated = new Subject<Student[]>();
@@ -33,17 +33,17 @@ export class RestService {
   }
 
   public getStudentonSearch(query: string){
-    const url = `students/search`;
+    const url = `${this.baseUrl}students/search`;
     return this.http.post<ServerResponse<Student[]>>(url, { query }).toPromise();
 
   }
   public getAllStudents(): Promise<ServerResponse<Student[]>> {
-    const url = `students`;
+    const url = `${this.baseUrl}students`;
     return this.http.get<ServerResponse<Student[]>>(url).toPromise();
   }
 
   public getStudents(queries): Promise<ServerResponse<Student[]>> {
-    const url = `students${this.formatQuery(queries)}`;
+    const url = `${this.baseUrl}students${this.formatQuery(queries)}`;
     return this.http.get<ServerResponse<Student[]>>(url).toPromise();
   }
   public addStudent(student: Student, file: File): Promise<ServerResponse<Student>> {
@@ -54,22 +54,22 @@ export class RestService {
     postData.append('student-image', file, file.name);
     console.log(postData);
 
-    const url = `students/create`;
+    const url = `${this.baseUrl}students/create`;
     return this.http.post<ServerResponse<Student>>(url, postData).toPromise();
   }
 
   public getStudentById(id: string): Promise<ServerResponse<Student>> {
-    const url = `students/${id}`;
+    const url = `${this.baseUrl}students/${id}`;
     return this.http.get<ServerResponse<Student>>(url).toPromise();
   }
 
   public downloadImage(imageId: string): Promise<Blob> {
-    const url = `images/${imageId}`;
+    const url = `${this.baseUrl}images/${imageId}`;
     return this.http.get(url, { responseType: 'blob' }).toPromise();
   }
   public deleteStudent(id: string) {
 
-    const url = `students/${id}`;
+    const url = `${this.baseUrl}students/${id}`;
     return this.http.delete<{ message: string, status: boolean }>(url).toPromise();
   }
 
@@ -84,7 +84,7 @@ export class RestService {
       postData.append('student-image', file, file.name);
     }
     console.log(postData);
-    const url = `students/${student._id}`;
+    const url = `${this.baseUrl}students/${student._id}`;
     return this.http.put<ServerResponse<Student>>(url, postData).toPromise();
   }
 }
