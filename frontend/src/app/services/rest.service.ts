@@ -33,17 +33,17 @@ export class RestService {
   }
 
   public getStudentonSearch(query: string){
-    const url = `${this.baseUrl}students/search`;
+    const url = `students/search`;
     return this.http.post<ServerResponse<Student[]>>(url, { query }).toPromise();
 
   }
   public getAllStudents(): Promise<ServerResponse<Student[]>> {
-    const url = `${this.baseUrl}students`;
+    const url = `students`;
     return this.http.get<ServerResponse<Student[]>>(url).toPromise();
   }
 
   public getStudents(queries): Promise<ServerResponse<Student[]>> {
-    const url = `${this.baseUrl}students${this.formatQuery(queries)}`;
+    const url = `students${this.formatQuery(queries)}`;
     return this.http.get<ServerResponse<Student[]>>(url).toPromise();
   }
   public addStudent(student: Student, file: File): Promise<ServerResponse<Student>> {
@@ -54,22 +54,22 @@ export class RestService {
     postData.append('student-image', file, file.name);
     console.log(postData);
 
-    const url = `${this.baseUrl}students/create`;
+    const url = `students/create`;
     return this.http.post<ServerResponse<Student>>(url, postData).toPromise();
   }
 
   public getStudentById(id: string): Promise<ServerResponse<Student>> {
-    const url = `${this.baseUrl}students/${id}`;
+    const url = `students/${id}`;
     return this.http.get<ServerResponse<Student>>(url).toPromise();
   }
 
   public downloadImage(imageId: string): Promise<Blob> {
-    const url = `${this.baseUrl}images/${imageId}`;
+    const url = `images/${imageId}`;
     return this.http.get(url, { responseType: 'blob' }).toPromise();
   }
   public deleteStudent(id: string) {
 
-    const url = `${this.baseUrl}students/${id}`;
+    const url = `students/${id}`;
     return this.http.delete<{ message: string, status: boolean }>(url).toPromise();
   }
 
@@ -84,7 +84,7 @@ export class RestService {
       postData.append('student-image', file, file.name);
     }
     console.log(postData);
-    const url = `${this.baseUrl}students/${student._id}`;
+    const url = `students/${student._id}`;
     return this.http.put<ServerResponse<Student>>(url, postData).toPromise();
   }
 }
