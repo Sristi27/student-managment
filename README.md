@@ -46,6 +46,6 @@
 <h3>And you are done!</h3>
 <h3>Open your browser on port 4200 and you will see the application running!</h3>
 
-If you like it,do give a <img src="https://upload.wikimedia.org/wikipedia/commons/8/88/Octicons-star.svg">
+If you like it,do give a ⭐️
 
 Created by Debadree and Sristi!
