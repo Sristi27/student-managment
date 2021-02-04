@@ -4,12 +4,12 @@
 
 <h4>Features include:</h4>
 
-1.Login/Signup by Admin.
-2.Create New Student.
-3.Student List both in grid form and list form.
-4.Search Student using name.
-5.Dashboard showing number of students based on branch division and year division.
-6.Notifications.
+1.Login/Signup by Admin.<br>
+2.Create New Student.<br>
+3.Student List both in grid form and list form.<br>
+4.Search Student using name.<br>
+5.Dashboard showing number of students based on branch division and year division.<br>
+6.Notifications.<br>
 
 
 
