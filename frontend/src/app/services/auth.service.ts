@@ -25,12 +25,12 @@ export class AuthService {
   }
 
   public registerUser(user: User): Promise<ServerResponse<User>> {
-    const url = `${this.baseUrl}auth/register`;
+    const url = '/auth/register';
     return this.http.post<ServerResponse<User>>(url, user).toPromise();
   }
 
   public loginUser(email: string, password: string): Promise<ServerResponse<Login>> {
-    const url = `${this.baseUrl}auth/login`;
+    const url = '/auth/login';
     return this.http.post<ServerResponse<Login>>(url, { email, password }).toPromise();
   }
 

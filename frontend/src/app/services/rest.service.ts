@@ -8,7 +8,7 @@ import { Subject } from 'rxjs';
   providedIn: 'root'
 })
 export class RestService {
-  baseUrl = 'http://localhost:3000/';
+  baseUrl = '/';
   constructor(private http: HttpClient) { }
   private students: Student[] = [];
   private studentsUpdated = new Subject<Student[]>();
